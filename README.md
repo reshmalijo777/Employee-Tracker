@@ -4,6 +4,7 @@ Challenge-12
 
 ## Description
 
+This is a Employee-Tracker which helps to manage a company's employee database, using Node.js, Inquirer, and MySQL. The user is able to view and manage the departments, roles, and employees so that it can organize and plan my business
 
 - [Video-Demo.webm]
 
@@ -61,6 +62,6 @@ THEN I am prompted to select an employee to update and their new role and this i
   ## Questions
 
   If you have any Questions,<br>
-  Contact me at - [Email](snowley777@gmail.com)
-  - [GitHub](https://github.com/reshmalijo777/Employee-Tracker)
+  Contact me at -[Email](snowley777@gmail.com)<br>
+  -[GitHub](https://github.com/reshmalijo777/Employee-Tracker)
 

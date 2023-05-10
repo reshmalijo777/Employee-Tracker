@@ -21,32 +21,32 @@ const db = mysql.createConnection(
             type:"list",
             message: "Select from the following options!!!!",
             name:"options",
-            choices:["view all departments", 
-                      "view all roles",
-                      "view all employees", 
-                      "add a department", 
-                      "add a role", 
-                      "add an employee", 
-                      "update an employee role"]
+            choices:["View all departments", 
+                      "View all roles",
+                      "View all employees", 
+                      "Add a department",
+                      "Add an employee", 
+                      "Add a role", 
+                      "Update an employee role"]
         }
       ])
 
     .then(function(answer){
         switch(answer.options){
-            case "view all departments": show_Dept();
+            case "View all departments": show_Dept();
             break;
-            case "view all roles": show_Roles();
+            case "View all roles": show_Roles();
             break;
-            case"view all employees": show_Emp();
+            case"View all employees": show_Emp();
             break;
-            case"add a department": add_Dept();
+            case"Add a department": add_Dept();
             break;
-            case"add a role": add_Role();
+            case"Add an employee": add_Emp();
             break;
-            case "add an employee": add_Emp();
+            case "Add a role": add_Roles();
             break;
-            case"update an employee role": update_Emp();
-            process.exit();         
+            case"Update an employee role": update_Emp();
+            break;        
         }
     })
   }
@@ -56,7 +56,7 @@ const db = mysql.createConnection(
  const sql = 'SELECT * FROM department';
   db.query(sql, (err, res) => {
     err? console.error(err):console.table(res);
-    init();
+     init();
     })
   };
 
@@ -69,14 +69,55 @@ const db = mysql.createConnection(
    };
   
    function show_Emp(){  
-    const sql = 'SELECT * FROM employee';
+    const sql = 'SELECT * FROM employees';
     db.query(sql, (err, res) => {
       err? console.error(err):console.table(res);
       init();
     })
    };
      
-   
+   function add_Dept(){
+    inquirer
+    .prompt([
+      {
+      type:"input",
+      message:"Enter the department you want to add!!!",
+      name:"newDept"
+    }
+    ])
+    .then(function(answer){
+      db.query(`INSERT INTO department (name) VALUES(?)`, answer.newDept,(err,res)=>{
+        db.query(`SELECT * FROM department`, (err, res) => {
+          err? console.error(err):console.table(res);
+           init();
+          })
+    })
+   })
+  }
+
+  function add_Emp(){
+    inquirer
+    .prompt([
+      {
+      type:"input",
+      message:"Enter the first name of employee!!!",
+      name:"firstName"
+    },
+    {
+      type:"input",
+      message:"Enter the last name of employee!!!",
+      name:"lastName"
+    },
+    ])
+    .then(function(answer){
+      db.query(`INSERT INTO employees(first_name, last_name) VALUES(?,?)`, [answer.firstName,answer.lastName],(err,res)=>{
+        db.query(`SELECT * FROM employees`, (err, res) => {
+          err? console.error(err):console.table(res);
+           init();
+          })
+    })
+   })
+  }
 
 
 
