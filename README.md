@@ -61,6 +61,6 @@ THEN I am prompted to select an employee to update and their new role and this i
   ## Questions
 
   If you have any Questions,<br>
-  Contact me at [Email](snowley777@gmail.com)
-  [GitHub](https://github.com/reshmalijo777/Employee-Tracker)
+  Contact me at - [Email](snowley777@gmail.com)
+  - [GitHub](https://github.com/reshmalijo777/Employee-Tracker)
 

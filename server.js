@@ -60,21 +60,21 @@ const db = mysql.createConnection(
     })
   };
 
-  // function show_Roles(){  
-  //   const sql = 'SELECT * FROM role';
-  //    db.query(sql, (err, res) => {
-  //      err? console.error(err):console.table(res);
-  //      init();
-  //      })
-  //  };
+  function show_Roles(){  
+    const sql = 'SELECT * FROM roles';
+     db.query(sql, (err, res) => {
+       err? console.error(err):console.table(res);
+       init();
+       })
+   };
   
-  //  function show_Emp(){  
-  //   const sql = 'SELECT * FROM Employee';
-  //   db.query(sql, (err, res) => {
-  //     err? console.error(err):console.table(res);
-  //     init();
-  //   })
-  //  };
+   function show_Emp(){  
+    const sql = 'SELECT * FROM employee';
+    db.query(sql, (err, res) => {
+      err? console.error(err):console.table(res);
+      init();
+    })
+   };
      
    
 
