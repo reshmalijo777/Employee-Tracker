@@ -4,9 +4,8 @@ Challenge-12
 
 ## Description
 
-This is a SVG logo maker that allows user to make choice of shape (circle, square,triangle) with choice of colors and a text with 3 charecter with a text color of choice.
 
-- [Video-Demo.webm](https://user-images.githubusercontent.com/128992593/235828602-5f0e7e8b-374f-46a1-bd10-51c8a934fbb0.webm)
+- [Video-Demo.webm]
 
 ## Table Of Contents
 
@@ -63,5 +62,5 @@ THEN I am prompted to select an employee to update and their new role and this i
 
   If you have any Questions,<br>
   Contact me at [Email](snowley777@gmail.com)
-  [GitHub]()
+  [GitHub](https://github.com/reshmalijo777/Employee-Tracker)
 
