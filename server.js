@@ -33,7 +33,7 @@ const db = mysql.createConnection(
 
     .then(function(answer){
         switch(answer.options){
-            case "view all department": show_Dept();
+            case "view all departments": show_Dept();
             break;
             case "view all roles": show_Roles();
             break;
