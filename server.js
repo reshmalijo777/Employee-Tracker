@@ -1,8 +1,7 @@
 const inquirer = require('inquirer');
 // Import and require mysql2
 const mysql = require('mysql2');
-const table=require('console.table');
-const { default: Choices } = require('inquirer/lib/objects/choices');
+const Table = require('console.table');
 
 // Connect to database
 const db = mysql.createConnection(
@@ -10,57 +9,74 @@ const db = mysql.createConnection(
       host: 'localhost',
       user: 'root',
       password: 'rechukutty77',
-      database: 'employee-tracker_db'
+      database: 'employee_tracker_db'
     },
     console.log(`Connected to the employee-tracker database.`)
   );
 
   function init(){
     inquirer
-    .promt([
+    .prompt([
         {
             type:"list",
             message: "Select from the following options!!!!",
             name:"options",
-            choices:["view all departments", "view all roles"," view all employees", 
-           "add a department", "add a role", "add an employee", "update an employee role"]
-        }   
-    ])
+            choices:["view all departments", 
+                      "view all roles",
+                      "view all employees", 
+                      "add a department", 
+                      "add a role", 
+                      "add an employee", 
+                      "update an employee role"]
+        }
+      ])
 
     .then(function(answer){
         switch(answer.options){
-            case "view all department": 
-            show_dept();
+            case "view all department": show_Dept();
             break;
-            case "view all roles": 
-            show_roles();
+            case "view all roles": show_Roles();
             break;
-            case"view all employees":
-            show_emp();
+            case"view all employees": show_Emp();
             break;
-            case"add a department":
-            add_dept();
+            case"add a department": add_Dept();
             break;
-            case"add a role":
-            add_role();
+            case"add a role": add_Role();
             break;
-            case "add an employee":
-            add_emp();
+            case "add an employee": add_Emp();
             break;
-            case"update an employee role":
-            update_emp();
+            case"update an employee role": update_Emp();
+            process.exit();         
         }
     })
   }
-  init();
+ init();
 
-  const viewDept = `SELECT * from department`;  
-  db.query(viewDept, (err, results) => {
-    err? console.error(err):console.table(results);
+ function show_Dept(){  
+ const sql = 'SELECT * FROM department';
+  db.query(sql, (err, res) => {
+    err? console.error(err):console.table(res);
     init();
-    });
-  
+    })
+  };
 
+  // function show_Roles(){  
+  //   const sql = 'SELECT * FROM role';
+  //    db.query(sql, (err, res) => {
+  //      err? console.error(err):console.table(res);
+  //      init();
+  //      })
+  //  };
+  
+  //  function show_Emp(){  
+  //   const sql = 'SELECT * FROM Employee';
+  //   db.query(sql, (err, res) => {
+  //     err? console.error(err):console.table(res);
+  //     init();
+  //   })
+  //  };
+     
+   
 
 
 
