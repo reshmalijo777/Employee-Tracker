@@ -27,7 +27,7 @@ const db = mysql.createConnection(
                       "Add a department",
                       "Add an employee", 
                       "Add a role", 
-                      "Update an employee role"]
+                      "Delete a department"]
         }
       ])
 
@@ -45,7 +45,7 @@ const db = mysql.createConnection(
             break;
             case "Add a role": add_Roles();
             break;
-            case"Update an employee role": update_Emp();
+            case"Delete a department": delete_dept();
             break;        
         }
     })
@@ -118,6 +118,57 @@ const db = mysql.createConnection(
     })
    })
   }
+
+  function add_Roles(){
+    inquirer
+    .prompt([
+      {
+      type:"input",
+      message:"Enter the title of employee:",
+      name:"title"
+    },
+    {
+      type:"input",
+      message:"Enter the salary of employee:",
+      name:"salary"   
+    },
+    {
+      type:"input",
+      message:"Enter the department_id of employee:",
+      name:"department_id"   
+    },
+    
+    ])
+    .then(function(answer){
+      db.query(`INSERT INTO roles(title, salary,department_id) VALUES(?,?,?)`, [answer.title,answer.salary,answer.department_id],(err,res)=>{
+        db.query(`SELECT * FROM roles`, (err, res) => {
+          err? console.error(err):console.table(res);
+           init();
+          })
+    })
+   })
+  }
+
+
+  function delete_dept(){
+    inquirer
+    .prompt([
+      {
+      type:"input",
+      message:"Enter the department you want to remove:",
+      name:"deptName"
+    }, 
+  ])
+  .then(function(answer){
+    db.query(`DELETE FROM department WHERE name = ?`, [answer.deptName],(err,res)=>{
+      db.query(`SELECT * FROM department`, (err, res) => {
+        err? console.error(err):console.table(res);
+         init();
+        })
+  })
+ })
+}
+
 
 
 
