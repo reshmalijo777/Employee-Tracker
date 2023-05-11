@@ -7,7 +7,7 @@ Challenge-12
 This is a Employee-Tracker which helps to manage a company's employee database, using Node.js, Inquirer, and MySQL. The user is able to view and manage the departments, roles, and employees so that it can organize and plan my business.
 
 Video-Demonstration:
--[Screencastify.webm](https://github.com/reshmalijo777/Employee-Tracker/assets/128992593/07079171-d68f-4be2-b739-2122b80b4130)
+- [Screencastify.webm](https://github.com/reshmalijo777/Employee-Tracker/assets/128992593/07079171-d68f-4be2-b739-2122b80b4130)
 
 ## Table Of Contents
 
